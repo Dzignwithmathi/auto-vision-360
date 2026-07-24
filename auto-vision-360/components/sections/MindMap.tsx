@@ -25,7 +25,7 @@ export default function MindMap() {
         {questions.map((q, i) => (
           <Reveal key={q} delay={(i % 3) * 0.08}>
             <div
-              className={`py-6 border-t border-line ${i >= questions.length - 2 ? "border-b" : ""} ${
+              className={`h-full py-6 border-t border-line ${i >= questions.length - 2 ? "border-b" : ""} ${
                 i === questions.length - 1 ? "text-amber" : ""
               }`}
             >
