@@ -21,11 +21,14 @@ export default function Synthesis() {
       </Reveal>
       <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-px bg-line mt-12">
         {categories.map((c, i) => (
-          <Reveal key={c.letter} delay={i * 0.08}>
-            <div className="bg-paper p-7">
-              <div className="num">{c.letter}</div>
-              <p className="mt-2.5 text-base">{c.title}</p>
-              <p className="mt-2 text-[13px] text-ink-soft">{c.desc}</p>
+          <Reveal key={c.letter} delay={i * 0.08} className="h-full">
+            <div className="group relative h-full">
+              <div className="pointer-events-none absolute inset-0 frame-sweep opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="relative h-full bg-paper p-7 m-[1.5px]">
+                <div className="num">{c.letter}</div>
+                <p className="mt-2.5 text-base">{c.title}</p>
+                <p className="mt-2 text-[13px] text-ink-soft">{c.desc}</p>
+              </div>
             </div>
           </Reveal>
         ))}
