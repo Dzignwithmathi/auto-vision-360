@@ -1,5 +1,6 @@
 import ProgressBar from "@/components/ProgressBar";
 import MirrorIndicator from "@/components/MirrorIndicator";
+
 import ColdOpen from "@/components/sections/ColdOpen";
 import Hero from "@/components/sections/Hero";
 import DriveHome from "@/components/sections/DriveHome";
@@ -31,6 +32,7 @@ export default function Home() {
     <main>
       <ProgressBar />
       <MirrorIndicator />
+
       <ColdOpen />
       <Hero />
       <DriveHome />
