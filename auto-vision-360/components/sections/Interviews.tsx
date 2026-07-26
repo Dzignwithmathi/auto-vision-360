@@ -72,7 +72,7 @@ function InterviewCard({ group }: { group: (typeof groups)[number] }) {
       onMouseMove={interactive ? handleMove : undefined}
       onMouseLeave={interactive ? handleLeave : undefined}
       style={{ rotateX, rotateY, transformPerspective: 800 }}
-      className="relative bg-paper p-8 overflow-hidden will-change-transform"
+      className="relative h-full bg-paper p-8 overflow-hidden will-change-transform"
     >
       <motion.div className="absolute inset-0 pointer-events-none" style={{ background }} />
       <div className="relative">
@@ -97,7 +97,7 @@ export default function Interviews() {
       </Reveal>
       <div className="mt-12 grid md:grid-cols-3 gap-px bg-line">
         {groups.map((g, i) => (
-          <Reveal key={g.title} delay={i * 0.08}>
+          <Reveal key={g.title} delay={i * 0.08} className="h-full">
             <InterviewCard group={g} />
           </Reveal>
         ))}
