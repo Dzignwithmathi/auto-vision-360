@@ -8,6 +8,9 @@ const categories = [
   { letter: "D", title: "Signal Visibility", desc: "Braking & intent communication" },
 ];
 
+const cornerBase =
+  "pointer-events-none absolute h-4 w-4 border-amber opacity-0 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0";
+
 export default function Synthesis() {
   return (
     <Section theme="light">
@@ -22,9 +25,17 @@ export default function Synthesis() {
       <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-px bg-line mt-12">
         {categories.map((c, i) => (
           <Reveal key={c.letter} delay={i * 0.08} className="h-full">
-            <div className="group relative h-full">
-              <div className="pointer-events-none absolute inset-0 frame-sweep opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <div className="relative h-full bg-paper p-7 m-[1.5px]">
+            <div className="group relative h-full bg-paper p-7 overflow-hidden">
+              <span className={`${cornerBase} left-2 top-2 border-l-2 border-t-2 -translate-x-1 -translate-y-1`} />
+              <span
+                className={`${cornerBase} right-2 top-2 border-r-2 border-t-2 translate-x-1 -translate-y-1 delay-75`}
+              />
+              <span
+                className={`${cornerBase} left-2 bottom-2 border-l-2 border-b-2 -translate-x-1 translate-y-1 delay-75`}
+              />
+              <span className={`${cornerBase} right-2 bottom-2 border-r-2 border-b-2 translate-x-1 translate-y-1`} />
+
+              <div className="relative">
                 <div className="num">{c.letter}</div>
                 <p className="mt-2.5 text-base">{c.title}</p>
                 <p className="mt-2 text-[13px] text-ink-soft">{c.desc}</p>
