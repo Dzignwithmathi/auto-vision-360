@@ -113,28 +113,4 @@ html {
   font-weight: 600;
   letter-spacing: -0.04em;
   line-height: 1;
-}/* Chapter 10 — a thin ring of light sweeping around a card's edge on hover,
-   like a scanner passing over it. Uses a registered custom property so the
-   angle itself is smoothly animatable. */
-@property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
-@keyframes sweep {
-  to {
-    --angle: 360deg;
-  }
-}
-
-.frame-sweep {
-  background: conic-gradient(from var(--angle), transparent 0%, #ff7a1a 8%, transparent 22%);
-  animation: sweep 2.4s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .frame-sweep {
-    animation: none;
-  }
 }
