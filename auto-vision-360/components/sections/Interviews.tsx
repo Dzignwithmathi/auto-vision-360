@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
+import { motion, useMotionValue, useSpring, useMotionTemplate } from "framer-motion";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 
@@ -21,6 +25,65 @@ const groups = [
   },
 ];
 
+const springConfig = { stiffness: 220, damping: 22, mass: 0.4 };
+
+function InterviewCard({ group }: { group: (typeof groups)[number] }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [interactive, setInteractive] = useState(false);
+
+  useEffect(() => {
+    setInteractive(window.matchMedia("(hover: hover) and (pointer: fine)").matches);
+  }, []);
+
+  const rawRotateX = useMotionValue(0);
+  const rawRotateY = useMotionValue(0);
+  const rawSpotX = useMotionValue(50);
+  const rawSpotY = useMotionValue(50);
+
+  const rotateX = useSpring(rawRotateX, springConfig);
+  const rotateY = useSpring(rawRotateY, springConfig);
+  const spotX = useSpring(rawSpotX, springConfig);
+  const spotY = useSpring(rawSpotY, springConfig);
+
+  const background = useMotionTemplate`radial-gradient(circle at ${spotX}% ${spotY}%, rgba(255,122,26,0.14), transparent 60%)`;
+
+  const handleMove = (e: ReactMouseEvent<HTMLDivElement>) => {
+    const el = cardRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width;
+    const py = (e.clientY - rect.top) / rect.height;
+    rawRotateX.set((0.5 - py) * 9);
+    rawRotateY.set((px - 0.5) * 9);
+    rawSpotX.set(px * 100);
+    rawSpotY.set(py * 100);
+  };
+
+  const handleLeave = () => {
+    rawRotateX.set(0);
+    rawRotateY.set(0);
+    rawSpotX.set(50);
+    rawSpotY.set(50);
+  };
+
+  return (
+    <motion.div
+      ref={cardRef}
+      onMouseMove={interactive ? handleMove : undefined}
+      onMouseLeave={interactive ? handleLeave : undefined}
+      style={{ rotateX, rotateY, transformPerspective: 800 }}
+      className="relative bg-paper p-8 overflow-hidden will-change-transform"
+    >
+      <motion.div className="absolute inset-0 pointer-events-none" style={{ background }} />
+      <div className="relative">
+        <div className="num">{group.label}</div>
+        <h3 className="mt-3 text-2xl font-display">{group.title}</h3>
+        <p className="mt-3.5 text-[15px] leading-[1.65] text-ink-soft">{group.quote}</p>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Interviews() {
   return (
     <Section theme="light">
@@ -32,14 +95,10 @@ export default function Interviews() {
           Listening to everyone on the road.
         </h2>
       </Reveal>
-      <div className="grid md:grid-cols-3 gap-px bg-line mt-12">
+      <div className="mt-12 grid md:grid-cols-3 gap-px bg-line">
         {groups.map((g, i) => (
           <Reveal key={g.title} delay={i * 0.08}>
-            <div className="bg-paper p-8">
-              <div className="num">{g.label}</div>
-              <h3 className="mt-3 text-2xl font-display">{g.title}</h3>
-              <p className="mt-3.5 text-[15px] leading-[1.65] text-ink-soft">{g.quote}</p>
-            </div>
+            <InterviewCard group={g} />
           </Reveal>
         ))}
       </div>
