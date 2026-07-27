@@ -6,6 +6,10 @@ import Hero from "@/components/sections/Hero";
 import DriveHome from "@/components/sections/DriveHome";
 import EverythingNormal from "@/components/sections/EverythingNormal";
 import MindMap from "@/components/sections/MindMap";
+import StatsOverview from "@/components/sections/StatsOverview";
+import TamilNaduContext from "@/components/sections/TamilNaduContext";
+import DataPerspectiveSplit from "@/components/sections/DataPerspectiveSplit";
+import InformationNetwork from "@/components/sections/InformationNetwork";
 import CarsVsAutos from "@/components/sections/CarsVsAutos";
 import VisibilityReveal from "@/components/sections/VisibilityReveal";
 import Hypothesis from "@/components/sections/Hypothesis";
@@ -15,10 +19,6 @@ import Findings from "@/components/sections/Findings";
 import Synthesis from "@/components/sections/Synthesis";
 import CompetitiveAnalysis from "@/components/sections/CompetitiveAnalysis";
 import RoadObservation from "@/components/sections/RoadObservation";
-import StatsOverview from "@/components/sections/StatsOverview";
-import TamilNaduContext from "@/components/sections/TamilNaduContext";
-import DataPerspectiveSplit from "@/components/sections/DataPerspectiveSplit";
-import InformationNetwork from "@/components/sections/InformationNetwork";
 import ResearchDirectionTransition from "@/components/sections/ResearchDirectionTransition";
 import Principles from "@/components/sections/Principles";
 import Sketches from "@/components/sections/Sketches";
@@ -43,6 +43,10 @@ export default function Home() {
       <DriveHome />
       <EverythingNormal />
       <MindMap />
+      <StatsOverview />
+      <TamilNaduContext />
+      <DataPerspectiveSplit />
+      <InformationNetwork />
       <CarsVsAutos />
       <VisibilityReveal />
       <Hypothesis />
@@ -52,10 +56,6 @@ export default function Home() {
       <Synthesis />
       <CompetitiveAnalysis />
       <RoadObservation />
-      <StatsOverview />
-      <TamilNaduContext />
-      <DataPerspectiveSplit />
-      <InformationNetwork />
       <ResearchDirectionTransition />
       <Principles />
       <Sketches />
