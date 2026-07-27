@@ -12,7 +12,6 @@ import DataPerspectiveSplit from "@/components/sections/DataPerspectiveSplit";
 import InformationNetwork from "@/components/sections/InformationNetwork";
 import CarsVsAutos from "@/components/sections/CarsVsAutos";
 import VisibilityReveal from "@/components/sections/VisibilityReveal";
-import Hypothesis from "@/components/sections/Hypothesis";
 import ResearchTimeline from "@/components/sections/ResearchTimeline";
 import Interviews from "@/components/sections/Interviews";
 import Findings from "@/components/sections/Findings";
@@ -49,7 +48,6 @@ export default function Home() {
       <InformationNetwork />
       <CarsVsAutos />
       <VisibilityReveal />
-      <Hypothesis />
       <ResearchTimeline />
       <Interviews />
       <Findings />
