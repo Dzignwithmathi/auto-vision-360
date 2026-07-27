@@ -6,12 +6,12 @@ import Hero from "@/components/sections/Hero";
 import DriveHome from "@/components/sections/DriveHome";
 import EverythingNormal from "@/components/sections/EverythingNormal";
 import MindMap from "@/components/sections/MindMap";
+import CarsVsAutos from "@/components/sections/CarsVsAutos";
+import VisibilityReveal from "@/components/sections/VisibilityReveal";
 import StatsOverview from "@/components/sections/StatsOverview";
 import TamilNaduContext from "@/components/sections/TamilNaduContext";
 import DataPerspectiveSplit from "@/components/sections/DataPerspectiveSplit";
 import InformationNetwork from "@/components/sections/InformationNetwork";
-import CarsVsAutos from "@/components/sections/CarsVsAutos";
-import VisibilityReveal from "@/components/sections/VisibilityReveal";
 import ResearchTimeline from "@/components/sections/ResearchTimeline";
 import Interviews from "@/components/sections/Interviews";
 import Findings from "@/components/sections/Findings";
@@ -41,12 +41,12 @@ export default function Home() {
       <DriveHome />
       <EverythingNormal />
       <MindMap />
+      <CarsVsAutos />
+      <VisibilityReveal />
       <StatsOverview />
       <TamilNaduContext />
       <DataPerspectiveSplit />
       <InformationNetwork />
-      <CarsVsAutos />
-      <VisibilityReveal />
       <ResearchTimeline />
       <Interviews />
       <Findings />
