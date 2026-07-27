@@ -38,7 +38,6 @@ export default function Home() {
       <MirrorIndicator />
 
       <ColdOpen />
-      <Hero />
       <DriveHome />
       <EverythingNormal />
       <MindMap />
@@ -66,6 +65,7 @@ export default function Home() {
       <Reflection />
       <FutureRoadmap />
       <Closing />
+      <Hero />
     </main>
   );
 }
