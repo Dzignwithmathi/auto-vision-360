@@ -15,6 +15,11 @@ import Findings from "@/components/sections/Findings";
 import Synthesis from "@/components/sections/Synthesis";
 import CompetitiveAnalysis from "@/components/sections/CompetitiveAnalysis";
 import RoadObservation from "@/components/sections/RoadObservation";
+import StatsOverview from "@/components/sections/StatsOverview";
+import TamilNaduContext from "@/components/sections/TamilNaduContext";
+import DataPerspectiveSplit from "@/components/sections/DataPerspectiveSplit";
+import InformationNetwork from "@/components/sections/InformationNetwork";
+import ResearchDirectionTransition from "@/components/sections/ResearchDirectionTransition";
 import Principles from "@/components/sections/Principles";
 import Sketches from "@/components/sections/Sketches";
 import ConceptEvolution from "@/components/sections/ConceptEvolution";
@@ -47,6 +52,11 @@ export default function Home() {
       <Synthesis />
       <CompetitiveAnalysis />
       <RoadObservation />
+      <StatsOverview />
+      <TamilNaduContext />
+      <DataPerspectiveSplit />
+      <InformationNetwork />
+      <ResearchDirectionTransition />
       <Principles />
       <Sketches />
       <ConceptEvolution />
