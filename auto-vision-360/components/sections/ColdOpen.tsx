@@ -9,23 +9,32 @@ export default function ColdOpen() {
   const [settled, setSettled] = useState(false);
 
   const shakeAnimation = prefersReducedMotion
-    ? { x: 0, y: 0, rotate: 0, scale: 1 }
+    ? { x: 0, y: 0, rotate: 0, scale: 1, filter: "blur(0px)" }
     : {
         x: [0, -22, 16, -12, 8, -4, 2, 0],
         y: [0, 14, -10, 7, -4, 2, 0],
         rotate: [0, -1.4, 1.1, -0.7, 0.4, -0.2, 0],
-        scale: [1.06, 1.03, 1.045, 1.015, 1.02, 1.005, 1],
+        scale: [1.18, 1.42, 1.04, 1.2, 1.1, 1.16, 1.18],
+        filter: [
+          "blur(0px)",
+          "blur(9px)",
+          "blur(0px)",
+          "blur(4px)",
+          "blur(0px)",
+          "blur(1px)",
+          "blur(0px)",
+        ],
       };
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-dark" aria-label="Prologue">
       <motion.div
         className="absolute inset-0"
-        initial={{ x: 0, y: 0, rotate: 0, scale: 1.06 }}
+        initial={{ x: 0, y: 0, rotate: 0, scale: 1.18, filter: "blur(0px)" }}
         animate={shakeAnimation}
         transition={{
-          duration: prefersReducedMotion ? 0 : 0.9,
-          times: [0, 0.12, 0.28, 0.45, 0.6, 0.78, 0.9, 1],
+          duration: prefersReducedMotion ? 0 : 1.1,
+          times: [0, 0.14, 0.3, 0.46, 0.62, 0.8, 1],
           ease: "easeOut",
         }}
         onAnimationComplete={() => setSettled(true)}
@@ -44,7 +53,7 @@ export default function ColdOpen() {
           className="absolute inset-0 bg-red-600 pointer-events-none mix-blend-multiply"
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0, 0.22, 0.05, 0] }}
-          transition={{ duration: 0.9, times: [0, 0.18, 0.32, 0.5, 0.7], ease: "easeOut" }}
+          transition={{ duration: 1.1, times: [0, 0.18, 0.32, 0.5, 0.7], ease: "easeOut" }}
         />
       )}
 
